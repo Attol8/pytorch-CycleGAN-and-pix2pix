@@ -7,9 +7,9 @@ fi
 
 echo "Specified [$FILE]"
 URL=https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/$FILE.zip
-ZIP_FILE=/content/landscape-paintings/pytorch-CycleGAN-and-pix2pix/datasets/$FILE.zip
-TARGET_DIR=/content/landscape-paintings/pytorch-CycleGAN-and-pix2pix/datasets/$FILE/
+ZIP_FILE=./datasets/$FILE.zip
+TARGET_DIR=./datasets/$FILE/
 wget -N $URL -O $ZIP_FILE
 mkdir $TARGET_DIR
-unzip $ZIP_FILE -d /content/landscape-paintings/pytorch-CycleGAN-and-pix2pix/datasets/
+unzip $ZIP_FILE -d ./datasets/
 rm $ZIP_FILE
