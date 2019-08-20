@@ -7,7 +7,7 @@ from data import create_dataset
 from models import create_model
 from util.visualizer import save_images
 from util import html
-import IPython.utils.pickleutil
+import pickle
 
 def model_pickle(model):
     with open("a.pickle","wb") as f:
