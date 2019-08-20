@@ -67,3 +67,7 @@ class TestModel(BaseModel):
     def optimize_parameters(self):
         """No optimization for test model."""
         pass
+    
+    def set_single_input(self, input):
+        self.real = input.to(self.device)
+        #self.image_paths = input['A_paths']
