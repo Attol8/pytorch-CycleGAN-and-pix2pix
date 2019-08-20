@@ -7,7 +7,11 @@ from data import create_dataset
 from models import create_model
 from util.visualizer import save_images
 from util import html
+import IPython.utils.pickleutil
 
+def model_pickle(model):
+    with open("a.pickle","wb") as f:
+        pickle.dump(model, f)
 
 if __name__ == '__main__':
     opt = TestOptions().parse()  # get test options
@@ -20,3 +24,5 @@ if __name__ == '__main__':
     dataset = create_dataset(opt)  # create a dataset given opt.dataset_mode and other options
     model = create_model(opt)      # create a model given opt.model and other options
     model.setup(opt)               # regular setup: load and print networks; create schedulers
+    model_pickle(model)
+    
