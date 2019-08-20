@@ -56,7 +56,7 @@ if __name__ == '__main__':
     # For [CycleGAN]: It should not affect CycleGAN as CycleGAN uses instancenorm without dropout.
     if opt.eval:
         model.eval()
-    for image in enumerate(os.listdir(img_path)):
+    for i, image in enumerate(os.listdir(img_path)):
         #if i >= opt.num_test:  # only apply our model to opt.num_test images.
             #break
         model.set_input(img_path)  # unpack data from data loader
