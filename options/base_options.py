@@ -113,24 +113,24 @@ class BaseOptions():
     def parse(self, parser):
         """Parse our options, create checkpoints directory suffix, and set up gpu device."""
         opt = self.gather_options(parser)
-        opt.isTrain = self.isTrain   # train or test
+        opt[0].isTrain = self.isTrain   # train or test
 
         # process opt.suffix
-        if opt.suffix:
-            suffix = ('_' + opt.suffix.format(**vars(opt))) if opt.suffix != '' else ''
-            opt.name = opt.name + suffix
+        if opt[0].suffix:
+            suffix = ('_' + opt[0].suffix.format(**vars(opt[0]))) if opt[0].suffix != '' else ''
+            opt[0].name = opt[0].name + suffix
 
-        self.print_options(opt)
+        self.print_options(opt[0])
 
         # set gpu ids
-        str_ids = opt.gpu_ids.split(',')
-        opt.gpu_ids = []
+        str_ids = opt[0].gpu_ids.split(',')
+        opt[0].gpu_ids = []
         for str_id in str_ids:
             id = int(str_id)
             if id >= 0:
-                opt.gpu_ids.append(id)
-        if len(opt.gpu_ids) > 0:
-            torch.cuda.set_device(opt.gpu_ids[0])
+                opt[0].gpu_ids.append(id)
+        if len(opt[0].gpu_ids) > 0:
+            torch.cuda.set_device(opt[0].gpu_ids[0])
 
-        self.opt = opt
+        self.opt = opt[0]
         return self.opt
