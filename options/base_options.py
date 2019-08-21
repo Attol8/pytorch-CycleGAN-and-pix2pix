@@ -112,7 +112,7 @@ class BaseOptions():
 
     def parse(self):
         """Parse our options, create checkpoints directory suffix, and set up gpu device."""
-        opt = self.gather_options()
+        opt = self.gather_options(self.parser)
         opt.isTrain = self.isTrain   # train or test
 
         # process opt.suffix
